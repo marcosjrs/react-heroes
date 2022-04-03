@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useMemo, useState } from 'react'
 import { useLocation, useNavigate } from 'react-router-dom';
 import queryString from 'query-string';
 
@@ -13,7 +13,7 @@ export const SearchScreen = () => {
   const {searchText} = formulario;
 
   const { q='' } = queryString.parse(search);
-  const heroes = getHeroByName(q);
+  const heroes = useMemo(()=>getHeroByName(q),[q]);
 
 
   const handleSubmit = (e) => {
