@@ -1,4 +1,4 @@
-import React, { useMemo, useState } from 'react'
+import React, { useMemo } from 'react'
 import { useLocation, useNavigate } from 'react-router-dom';
 import queryString from 'query-string';
 
@@ -39,7 +39,7 @@ export const SearchScreen = () => {
         { heroes &&  heroes.map( h => <HeroCard key={h.id} {...h}  />) }
         </div>
         {
-          (q=='')?
+          (q==='')?
           <div className='alert alert-info'>No hay ninguna búsqueda activa</div> :
           (heroes.length === 0) && <div className='alert alert-warning'>No hay resultados</div>
         }
